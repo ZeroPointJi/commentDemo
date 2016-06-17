@@ -8,7 +8,9 @@
 
 #import "ViewController.h"
 #import "CommentTableViewCell.h"
-#import "replyViewController.h"
+#import "KeyBoardView.h"
+#import "FaceBoard.h"
+#import "Emoji.h"
 
 #define SCREENW [UIScreen mainScreen].bounds.size.width
 #define SCREENH [UIScreen mainScreen].bounds.size.height
@@ -18,6 +20,9 @@
 @property (nonatomic, strong) UITableView *tableView;
 /** 评论数组 */
 @property (nonatomic, strong) NSMutableArray *commentArray;
+/** 弹出视图 **/
+@property (nonatomic, strong) KeyBoardView *keyBoard;
+
 
 @end
 
@@ -51,6 +56,8 @@
     [super viewDidLoad];
     
     [self setupTableView];
+    
+    [self setupKeyBoardView];
 }
 
 // 设置TableView
@@ -60,10 +67,22 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.showsHorizontalScrollIndicator = NO;
+    _tableView.showsVerticalScrollIndicator = NO;
     
     [_tableView registerClass:[CommentTableViewCell class] forCellReuseIdentifier:@"reuse"];
     
     [self.view addSubview:_tableView];
+}
+
+// 设置KeyBoardView
+- (void)setupKeyBoardView
+{
+    if (!_keyBoard) {
+        _keyBoard = [[KeyBoardView alloc] initWithBGView:self.view];
+        _keyBoard.frame = CGRectMake(0, SCREENH, SCREENW, 44);
+        _keyBoard.backgroundColor = [UIColor redColor];
+        [self.view addSubview:_keyBoard];
+    }
 }
 
 #pragma mark - TableView DataSrouce & Delegate -
@@ -103,15 +122,15 @@
     
     // 评论按钮点击回调
     cell.commentBtnClick = ^(UIButton *button) {
-        replyViewController *replyVC = [[replyViewController alloc] init];
+        // 弹出键盘
+        [_keyBoard.textView becomeFirstResponder];
         
-        // 刷新视图以显示回复
-        replyVC.reloadTableView = ^(NSString *text) {
-            [commentGroupFrame addNewReply:text];
+        // 发送按钮回调
+        _keyBoard.sendReplyAndReload = ^(NSString *text) {
+            NSString *nameString = [NSString stringWithFormat:@"隔壁老王：%@", text];
+            [commentGroupFrame addNewReply:nameString];
             [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
         };
-        
-        [self presentViewController:replyVC animated:YES completion:nil];
     };
     
     return cell;

@@ -10,7 +10,7 @@
 		290F81F4A07C1F17DE40637E /* libPods-CommontDemoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52539972A2DB93EBF56FFDEA /* libPods-CommontDemoUITests.a */; };
 		2DFB233110D2F7CA48AFC3E9 /* libPods-CommontDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDFA1471B6CAEDA16FD3636E /* libPods-CommontDemo.a */; };
 		C1DCF009D62F8CDAB7DF4CD5 /* libPods-CommontDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E31C8F876CF7AB043236FEBF /* libPods-CommontDemoTests.a */; };
-		C6333B461CF7FBCC0099D7E6 /* replyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6333B451CF7FBCC0099D7E6 /* replyViewController.m */; };
+		C6313B031D139E0D00C26332 /* Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = C6313B021D139E0D00C26332 /* Emoji.m */; };
 		C6333B481CF81FF30099D7E6 /* 点赞1.png in Resources */ = {isa = PBXBuildFile; fileRef = C6333B471CF81FF30099D7E6 /* 点赞1.png */; };
 		C65F2ACA1CF6AA0F008D7360 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C65F2AC91CF6AA0F008D7360 /* main.m */; };
 		C65F2ACD1CF6AA0F008D7360 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C65F2ACC1CF6AA0F008D7360 /* AppDelegate.m */; };
@@ -39,6 +39,8 @@
 		C65F2B261CF6DE32008D7360 /* CommentGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C65F2B251CF6DE32008D7360 /* CommentGroupModel.m */; };
 		C65F2B291CF6E8A3008D7360 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C65F2B281CF6E8A3008D7360 /* CommentTableViewCell.m */; };
 		C65F2B2B1CF6F104008D7360 /* 点赞2.png in Resources */ = {isa = PBXBuildFile; fileRef = C65F2B2A1CF6F104008D7360 /* 点赞2.png */; };
+		C6AC14921D124FD600BC35D8 /* KeyBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6AC14911D124FD600BC35D8 /* KeyBoardView.m */; };
+		C6AC14951D12AC0300BC35D8 /* FaceBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = C6AC14941D12AC0300BC35D8 /* FaceBoard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,10 +65,10 @@
 		6476F96273B949B4B2B49E34 /* Pods-CommontDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommontDemoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CommontDemoUITests/Pods-CommontDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		93B637BEBED7504B712E996D /* Pods-CommontDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommontDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CommontDemo/Pods-CommontDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		B1BBD1C69C7414E65D1B483F /* Pods-CommontDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommontDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CommontDemoUITests/Pods-CommontDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C6313B011D139E0D00C26332 /* Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Emoji.h; sourceTree = "<group>"; };
+		C6313B021D139E0D00C26332 /* Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Emoji.m; sourceTree = "<group>"; };
 		C6333B421CF7F7560099D7E6 /* HeaderContent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderContent.h; sourceTree = "<group>"; };
 		C6333B431CF7F7760099D7E6 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		C6333B441CF7FBCC0099D7E6 /* replyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = replyViewController.h; sourceTree = "<group>"; };
-		C6333B451CF7FBCC0099D7E6 /* replyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = replyViewController.m; sourceTree = "<group>"; };
 		C6333B471CF81FF30099D7E6 /* 点赞1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "点赞1.png"; sourceTree = "<group>"; };
 		C65F2AC51CF6AA0F008D7360 /* CommontDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommontDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C65F2AC91CF6AA0F008D7360 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -106,6 +108,10 @@
 		C65F2B271CF6E8A3008D7360 /* CommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableViewCell.h; sourceTree = "<group>"; };
 		C65F2B281CF6E8A3008D7360 /* CommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
 		C65F2B2A1CF6F104008D7360 /* 点赞2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "点赞2.png"; sourceTree = "<group>"; };
+		C6AC14901D124FD600BC35D8 /* KeyBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyBoardView.h; sourceTree = "<group>"; };
+		C6AC14911D124FD600BC35D8 /* KeyBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyBoardView.m; sourceTree = "<group>"; };
+		C6AC14931D12AC0300BC35D8 /* FaceBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceBoard.h; sourceTree = "<group>"; };
+		C6AC14941D12AC0300BC35D8 /* FaceBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceBoard.m; sourceTree = "<group>"; };
 		CDFA1471B6CAEDA16FD3636E /* libPods-CommontDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CommontDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3401011DD2D5BADA919A123 /* Pods-CommontDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommontDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CommontDemoTests/Pods-CommontDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D87C0FA3DAC971C22AA1B482 /* Pods-CommontDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommontDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CommontDemoTests/Pods-CommontDemoTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -189,8 +195,6 @@
 			children = (
 				C65F2ACE1CF6AA0F008D7360 /* ViewController.h */,
 				C65F2ACF1CF6AA10008D7360 /* ViewController.m */,
-				C6333B441CF7FBCC0099D7E6 /* replyViewController.h */,
-				C6333B451CF7FBCC0099D7E6 /* replyViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -224,9 +228,9 @@
 				C6333B491CF82A0D0099D7E6 /* Model */,
 				C6333B4A1CF82A1A0099D7E6 /* View */,
 				C6333B4B1CF82A250099D7E6 /* Controller */,
+				C6AC148F1D124FAB00BC35D8 /* KeyBoardView */,
 				C65F2ACB1CF6AA0F008D7360 /* AppDelegate.h */,
 				C65F2ACC1CF6AA0F008D7360 /* AppDelegate.m */,
-				C65F2B021CF6DD06008D7360 /* FamilyGroup.plist */,
 				C6333B421CF7F7560099D7E6 /* HeaderContent.h */,
 				C6333B431CF7F7760099D7E6 /* PrefixHeader.pch */,
 				C65F2AC81CF6AA0F008D7360 /* Supporting Files */,
@@ -237,6 +241,7 @@
 		C65F2AC81CF6AA0F008D7360 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C65F2B021CF6DD06008D7360 /* FamilyGroup.plist */,
 				C65F2AD91CF6AA10008D7360 /* Info.plist */,
 				C65F2AC91CF6AA0F008D7360 /* main.m */,
 				C65F2AD11CF6AA10008D7360 /* Main.storyboard */,
@@ -285,6 +290,19 @@
 				C65F2B111CF6DD39008D7360 /* reply.png */,
 			);
 			name = Image;
+			sourceTree = "<group>";
+		};
+		C6AC148F1D124FAB00BC35D8 /* KeyBoardView */ = {
+			isa = PBXGroup;
+			children = (
+				C6AC14901D124FD600BC35D8 /* KeyBoardView.h */,
+				C6AC14911D124FD600BC35D8 /* KeyBoardView.m */,
+				C6AC14931D12AC0300BC35D8 /* FaceBoard.h */,
+				C6AC14941D12AC0300BC35D8 /* FaceBoard.m */,
+				C6313B011D139E0D00C26332 /* Emoji.h */,
+				C6313B021D139E0D00C26332 /* Emoji.m */,
+			);
+			name = KeyBoardView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -568,8 +586,10 @@
 				C65F2AD01CF6AA10008D7360 /* ViewController.m in Sources */,
 				C65F2B291CF6E8A3008D7360 /* CommentTableViewCell.m in Sources */,
 				C65F2B231CF6DE12008D7360 /* CommentGroupFrame.m in Sources */,
-				C6333B461CF7FBCC0099D7E6 /* replyViewController.m in Sources */,
+				C6313B031D139E0D00C26332 /* Emoji.m in Sources */,
 				C65F2B261CF6DE32008D7360 /* CommentGroupModel.m in Sources */,
+				C6AC14921D124FD600BC35D8 /* KeyBoardView.m in Sources */,
+				C6AC14951D12AC0300BC35D8 /* FaceBoard.m in Sources */,
 				C65F2ACD1CF6AA0F008D7360 /* AppDelegate.m in Sources */,
 				C65F2ACA1CF6AA0F008D7360 /* main.m in Sources */,
 			);
