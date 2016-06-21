@@ -122,15 +122,14 @@
     
     // 评论按钮点击回调
     cell.commentBtnClick = ^(UIButton *button) {
-        // 弹出键盘
-        [_keyBoard.textView becomeFirstResponder];
-        
-        // 发送按钮回调
-        _keyBoard.sendReplyAndReload = ^(NSString *text) {
-            NSString *nameString = [NSString stringWithFormat:@"隔壁老王：%@", text];
-            [commentGroupFrame addNewReply:nameString];
-            [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-        };
+        [_keyBoard show];
+    };
+    
+    // 发送按钮回调
+    _keyBoard.sendReplyAndReload = ^(NSString *text) {
+        NSString *nameString = [NSString stringWithFormat:@"隔壁老王：%@", text];
+        [commentGroupFrame addNewReply:nameString];
+        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     };
     
     return cell;

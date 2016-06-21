@@ -32,6 +32,7 @@
 
 @implementation FaceBoard
 
+#pragma mark -- 懒加载 --
 - (NSArray *)emojiArray
 {
     if (!_emojiArray) {
@@ -40,47 +41,70 @@
     return _emojiArray;
 }
 
+- (UIScrollView *)scrollView
+{
+    if (!_scrollView) {
+        _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
+        _scrollView.backgroundColor = [UIColor grayColor];
+        _scrollView.contentSize = CGSizeMake((kPAGENUM + 1) * SCREENW, 0);
+        _scrollView.pagingEnabled = YES;
+        _scrollView.delegate = self;
+        _scrollView.showsHorizontalScrollIndicator = NO;
+    }
+    
+    return _scrollView;
+}
+
+- (UIPageControl *)pageControl
+{
+    if (!_pageControl) {
+        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 5, SCREENW, 20)];
+        _pageControl.numberOfPages = kPAGENUM + 1;
+        [_pageControl addTarget:self action:@selector(pageChange) forControlEvents:UIControlEventValueChanged];
+    }
+    
+    return _pageControl;
+}
+
+#pragma mark -- 初始化方法 --
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        [self initSubViews];
+        // 添加滚动视图
+        [self addSubview:self.scrollView];
+        
+        // 添加表情
+        for (NSInteger i = 0; i < kEMOJINUM; i++) {
+            [_scrollView addSubview:[self createFaceButtonWithOrder:i]];
+        }
+        
+        // 添加页面指示器
+        [self addSubview:self.pageControl];
     }
     return self;
 }
 
-// 初始化子控件
-- (void)initSubViews
+#pragma mark -- 核心方法 --
+// 量化表情方法
+- (UIButton *)createFaceButtonWithOrder:(NSInteger)order
 {
-    _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
-    _scrollView.backgroundColor = [UIColor grayColor];
-    _scrollView.contentSize = CGSizeMake((kPAGENUM + 1) * SCREENW, 0);
-    _scrollView.pagingEnabled = YES;
-    _scrollView.delegate = self;
-    [self addSubview:_scrollView];
+    UIButton *faceButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    for (NSInteger i = 0; i < kEMOJINUM; i++) {
-        UIButton *faceButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        
-        NSInteger num = i % (kLINE * kCOLUMN);
-        NSInteger page = i / (kLINE * kCOLUMN);
-        NSInteger line = num / kCOLUMN;
-        NSInteger column = num % kCOLUMN;
-        
-        CGFloat itemX = page * SCREENW +  (column + 1) * kPAD + column * kITEMW;
-        CGFloat itemY = (line + 1) * kPAD + line * kITEMH;
-        
-        faceButton.frame = CGRectMake(itemX, itemY, kITEMW, kITEMH);
-        
-        [faceButton setTitle:self.emojiArray[i] forState:UIControlStateNormal];
-        [faceButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [faceButton addTarget:self action:@selector(faceButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-        [_scrollView addSubview:faceButton];
-    }
+    // 计算位置与大小
+    NSInteger num = order % (kLINE * kCOLUMN);
+    NSInteger page = order / (kLINE * kCOLUMN);
+    NSInteger line = num / kCOLUMN;
+    NSInteger column = num % kCOLUMN;
+    CGFloat itemX = page * SCREENW +  (column + 1) * kPAD + column * kITEMW;
+    CGFloat itemY = (line + 1) * kPAD + line * kITEMH;
     
-    _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 5, SCREENW, 20)];
-    _pageControl.numberOfPages = kPAGENUM + 1;
-    [_pageControl addTarget:self action:@selector(pageChange) forControlEvents:UIControlEventValueChanged];
-    [self addSubview:_pageControl];
+    // 设置属性
+    faceButton.frame = CGRectMake(itemX, itemY, kITEMW, kITEMH);
+    [faceButton setTitle:self.emojiArray[order] forState:UIControlStateNormal];
+    [faceButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [faceButton addTarget:self action:@selector(faceButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    return faceButton;
 }
 
 // 表情点击事件
@@ -96,7 +120,7 @@
     [_scrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
 }
 
-#pragma mark - ScrollView Delegate -
+#pragma mark -- ScrollView Delegate --
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     NSInteger page = scrollView.contentOffset.x / SCREENW + 0.5;

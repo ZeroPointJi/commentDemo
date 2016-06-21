@@ -31,4 +31,7 @@ typedef void (^SendReply) (NSString *);
 /** 自定义初始化方法 **/
 - (instancetype)initWithBGView:(UIView *)view;
 
+/** 显示键盘 **/
+- (void)show;
+
 @end

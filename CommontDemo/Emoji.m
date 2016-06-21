@@ -12,6 +12,16 @@
 
 @implementation Emoji
 
++ (instancetype)systemEmoji
+{
+    static Emoji *emoji;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        emoji = [[self alloc] init];
+    });
+    return emoji;
+}
+
 - (NSArray *)defaultEmoticons
 {
     if (!_defaultEmoticons) {
@@ -26,16 +36,6 @@
         _defaultEmoticons = array;
     }
     return _defaultEmoticons;
-}
-
-+ (instancetype)systemEmoji
-{
-    static Emoji *emoji;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        emoji = [[self alloc] init];
-    });
-    return emoji;
 }
 
 @end
