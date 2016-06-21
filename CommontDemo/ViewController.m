@@ -17,10 +17,11 @@
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 
+/** 滚动列表 */
 @property (nonatomic, strong) UITableView *tableView;
 /** 评论数组 */
 @property (nonatomic, strong) NSMutableArray *commentArray;
-/** 弹出视图 **/
+/** 弹出视图 */
 @property (nonatomic, strong) KeyBoardView *keyBoard;
 
 

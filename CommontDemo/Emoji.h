@@ -10,7 +10,7 @@
 
 @interface Emoji : NSObject
 
-/** 系统自带表情数组 **/
+/** 系统自带表情数组 */
 @property (nonatomic, copy) NSArray *defaultEmoticons;
 
 + (instancetype)systemEmoji;

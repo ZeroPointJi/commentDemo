@@ -12,7 +12,7 @@ typedef void (^FaceButtonClick) (UIButton *);
 
 @interface FaceBoard : UIView
 
-/** 表情点击事件 **/
+/** 表情点击事件 */
 @property (nonatomic, copy) FaceButtonClick buttonClick;
 
 @end

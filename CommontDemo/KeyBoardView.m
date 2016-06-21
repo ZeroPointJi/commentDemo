@@ -85,16 +85,11 @@
 {
     self = [super init];
     if (self) {
-        // 添加表情按钮
+        
+        // 添加视图
         [self addSubview:self.faceButton];
-        
-        // 添加输入框
         [self addSubview:self.textView];
-        
-        // 添加发送按钮
         [self addSubview:self.sendButton];
-        
-        // 添加表情键盘
         [view addSubview:self.faceBoard];
         
         // 注册通知
@@ -204,7 +199,6 @@
 }
 
 #pragma mark -- Nofitication --
-
 // 键盘将要弹出
 - (void)keyBoardWillShow:(NSNotification *)notification
 {
@@ -212,7 +206,6 @@
     CGRect keyBoardFrame = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     
     [self showSystemKeyBoard:keyBoardFrame];
-    
     [self addCoverView];
 }
 

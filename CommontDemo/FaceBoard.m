@@ -21,11 +21,11 @@
 
 @interface FaceBoard () <UIScrollViewDelegate>
 
-/** 滚动视图 **/
+/** 滚动视图 */
 @property (nonatomic, strong) UIScrollView *scrollView;
-/** 页面指示器 **/
+/** 页面指示器 */
 @property (nonatomic, strong) UIPageControl *pageControl;
-/** 表情数组 **/
+/** 表情数组 */
 @property (nonatomic, strong) NSArray *emojiArray;
 
 @end
